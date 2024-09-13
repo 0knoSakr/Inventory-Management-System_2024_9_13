@@ -1,9 +1,9 @@
 // client/src/services/productService.js
-import api from './api'; // Axiosインスタンスをインポート
+import api from "./api"; // Axiosインスタンスをインポート
 
 // 商品一覧を取得
 export const getProducts = () => {
-  return api.get('/products');
+  return api.get("/products");
 };
 
 // 商品をIDで取得
@@ -13,17 +13,25 @@ export const getProductById = (id) => {
 
 // 商品を追加
 export const addProduct = (product) => {
-  return api.post('/products', product);
+  return api.post("/products", product);
 };
 
 // 在庫が少ない商品を取得
 export const getLowStockProducts = () => {
-  return api.get('/products/low-stock');
+  return api.get("/products/low-stock");
 };
 
-export default {
+// export default {
+//   getProducts,
+//   getProductById,
+//   addProduct,
+//   getLowStockProducts,
+// };
+
+const productService = {
   getProducts,
   getProductById,
   addProduct,
   getLowStockProducts,
 };
+export default productService;
