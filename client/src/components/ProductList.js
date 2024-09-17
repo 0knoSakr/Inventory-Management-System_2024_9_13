@@ -19,6 +19,7 @@ const ProductList = () => {
         {products.map((product) => (
           <li key={product.id}>
             {product.name} - 在庫: {product.stock}
+            <button onClick={() => (window.location.href = `/products/${products.id}`)}>詳細を見る</button>
           </li>
         ))}
       </ul>
