@@ -4,6 +4,7 @@ import Dashboard from './pages/Dashboard';
 import ProductForm from './components/ProductForm';
 import StockAlert from './components/StockAlert'; // 在庫アラートをインポート
 import './App.css'; // スタイル用のCSSファイルをインポート
+import ProductDetail from './components/ProductDetail';
 
 const App = () => {
   return (
@@ -11,8 +12,6 @@ const App = () => {
       <div>
         {/* ヘッダー部分 */}
         <header className="header">
-          <ul>
-          </ul>
           <div className="header-content">
             <h1>在庫管理システム</h1>
             {/* ナビゲーションリンクをヘッダー内に配置 */}
@@ -38,7 +37,7 @@ const App = () => {
             <Route path="/" element={<Dashboard />} />
             <Route path="/add-product" element={<ProductForm />} />
             <Route path="/alerts" element={<StockAlert />} />{' '}
-            <Route path="/products/:id" />
+            <Route path="/products/:id" element={<ProductDetail />} />
             {/* 在庫アラート */}
           </Routes>
         </div>
