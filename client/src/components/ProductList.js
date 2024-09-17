@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import api from "../services/api"; // api.jsをインポート
-// import { useParams } from 'react-router-dom';
+import { Link } from "react-router-dom";
 
 const ProductList = () => {
   const [products, setProducts] = useState([]);
@@ -22,7 +22,6 @@ const ProductList = () => {
           console.error(error);
         });
     }, [products.id]); // products.idを依存配列に追加
-        console.log(`products.id`)
 
   return (
     <div>
@@ -31,13 +30,7 @@ const ProductList = () => {
         {products.map((product) => (
           <li key={product.id}>
             {product.name} - 在庫: {product.stock}
-            <button
-              onClick={() =>
-                (window.location.href = `/products/${products.id}`)
-              }
-            >
-              詳細を見る
-            </button>
+            <button><Link to={ `/products/${products.id}` }>詳細を見る</Link></button>
           </li>
         ))}
       </ul>

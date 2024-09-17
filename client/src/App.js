@@ -26,6 +26,9 @@ const App = () => {
                 <li>
                   <Link to="/alerts">在庫アラート</Link>
                 </li>
+                <li>
+                  <Link to="/products/:id">商品詳細</Link>
+                </li>
               </ul>
             </nav>
           </div>
