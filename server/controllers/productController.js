@@ -8,6 +8,15 @@ exports.getAllProducts = (req, res) => {
   });
 };
 
+// 特定の商品の取得
+exports.getProductById = (req, res) => {
+  const { id } = req.params; // URLパラメータから顧客IDを取得
+  Product.getById((err, data) => {
+    if (err) res.status(500).send({ message: err.message });
+    else res.send(data);
+  }, id);
+};
+
 // 商品の追加
 exports.addProduct = (req, res) => {
   const newProduct = new Product(req.body);
