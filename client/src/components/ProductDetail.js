@@ -10,14 +10,15 @@ const ProductDetail = () => {
   useEffect(() => {
     const fetchProduct = async () => {
       try {
-        const response = await api.get(`/products/${id}`);
-        setProduct(response.date);
+        const response = await api.get(`http://localhost:5000/api/products/${id}`);
+        setProduct(response.data);
       } catch (error) {
         console.error("商品情報の取得に失敗しました", error);
       }
     };
     fetchProduct();
   }, [id]);
+  console.log(product)
 
   if (!product) {
     return <div>Lording...</div>
@@ -26,11 +27,11 @@ const ProductDetail = () => {
   return (
     <div>
       <h1>商品詳細</h1>
-      <p>商品名:{ product.name }</p>
-      <p>SKU:{ product.sku }</p>
-      <p>在庫数:{ product.stock }</p>
-      <p>説明:{ product.explanation }</p>
-      <p>価格:{ product.price }</p>
+      <p>商品名:{ product[0].name }</p>
+      <p>SKU:{ product[0].sku }</p>
+      <p>在庫数:{ product[0].stock }</p>
+      <p>説明:{ product[0].explanation }</p>
+      <p>価格:{ product[0].price }</p>
     </div>
   )
 };

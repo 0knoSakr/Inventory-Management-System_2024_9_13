@@ -14,7 +14,7 @@ const ProductList = () => {
       .catch((error) => console.error("商品情報の取得に失敗しました:", error));
 
       // products.idを使った処理 (例: APIリクエスト)
-      axios.get(`/products/${products.id}`)
+      axios.get(`/products${products.id}`)
         .then(response => {
           // データ処理
         })
@@ -30,7 +30,7 @@ const ProductList = () => {
         {products.map((product) => (
           <li key={product.id}>
             {product.name} - 在庫: {product.stock}
-            <button><Link to={ `/products/${products.id}` }>詳細を見る</Link></button>
+            <button><Link to={ `/products/${product.id}` }>詳細を見る</Link></button>
           </li>
         ))}
       </ul>

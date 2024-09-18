@@ -21,17 +21,17 @@ export const getLowStockProducts = () => {
   return api.get("/products/low-stock");
 };
 
-// export default {
-//   getProducts,
-//   getProductById,
-//   addProduct,
-//   getLowStockProducts,
-// };
-
-const productService = {
+export default {
   getProducts,
   getProductById,
   addProduct,
   getLowStockProducts,
 };
-export default productService;
+
+// const productService = {
+//   getProducts,
+//   getProductById,
+//   addProduct,
+//   getLowStockProducts,
+// };
+// export default productService;
